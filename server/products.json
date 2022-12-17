@@ -7,11 +7,22 @@
       "price": 54900
     },
     {
-        "id": 2,
-        "name": "Redmi 10 Pro",
-        "description": "8 GB RAM & 128 GB ROM",
-        "price": 15499
-      }
-    
+      "id": 2,
+      "name": "Redmi 10 Pro",
+      "description": "8 GB RAM & 128 GB ROM",
+      "price": 15499
+    },
+    {
+      "id": 3,
+      "name": "Realmi",
+      "description": "Latest version",
+      "price": 17999
+    },
+    {
+      "id": 4,
+      "name": "Samsung",
+      "description": "Good Quality",
+      "price": 14499
+    }
   ]
 }

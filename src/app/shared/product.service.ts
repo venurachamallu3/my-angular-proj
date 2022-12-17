@@ -21,7 +21,8 @@ export class ProductService {
     }
 
   addproduct(prod:Product){
-    return this.http.post<Product>(this.api, prod)
+    console.log("ADDING PRODUCT ", prod)
+    return this.http.post<Product[]>(this.api, prod)
   }
 
   deleteproductbyid(id:number){

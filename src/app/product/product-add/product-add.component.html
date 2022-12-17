@@ -1,1 +1,22 @@
-<p>product-add works!</p>
+<form #productform="ngForm" (ngSubmit)="onsubmit(productform.value)">
+    
+    <label> ID : </label>
+    <input type="number" name="id" ngModel>
+    <br>
+    <br>
+
+    <label> Name : </label>
+    <input type="text" name="name" ngModel>
+    <br>
+    <br>
+    <label> Description : </label>
+    <input type="text" name="description" ngModel>
+    <br>
+    <br>
+    <label> Price : </label>
+    <input type="number" name="price" ngModel>
+    <br>
+    <br>
+    <button type="submit" value="submit">ADD</button>
+    
+</form>
