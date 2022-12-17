@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 54900
+    },
+    {
+        "id": 2,
+        "name": "Redmi 10 Pro",
+        "description": "8 GB RAM & 128 GB ROM",
+        "price": 15499
+      }
+    
+  ]
+}

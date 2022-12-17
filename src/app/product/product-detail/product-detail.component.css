@@ -1,0 +1,15 @@
+table, th, td {
+    border: 1px solid;
+  }
+  body
+		{
+		    counter-reset: Serial;          
+		}
+
+		
+
+		tr td:first-child:before
+		{
+		  counter-increment: Serial;      
+		  content: counter(Serial); 
+		}
