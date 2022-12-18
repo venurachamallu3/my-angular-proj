@@ -1,6 +1,6 @@
 <h2> Product details</h2>
 
-
+<h2>MAX:{{maximumid}}</h2>
 
 <table>
     <thead>
@@ -17,5 +17,26 @@
             <td>{{prod.price}}</td>
 
         </tr>
+        <tr>
+            <td> </td>
+            <td></td>
+            <td>
+                <p *ngIf="showprevious">
+                     <button type="button"      (click)="back(prod.id)">Previous Product </button>
+                </p>
+            </td>
+            <td>
+                <p *ngIf="showprevious">
+                    <button type="button" value="back" (click)="next(prod.id)">Next Product </button>
+                </p>
+            </td>
+
+
+        </tr>
     </tbody>
 </table>
+
+
+<pre></pre>
+
+<button type="button" value="back"> Go back </button>

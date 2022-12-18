@@ -1,1 +1,24 @@
-<p>product-edit works!</p>
+
+
+<form #productform="ngForm" (ngSubmit)="onupdate(productform.value.id,  productform.value)">
+    
+    <label> ID : </label>
+    <input type="number" name="id"    [(ngModel)]="product.id"   ngModel>
+    <br>
+    <br>
+
+    <label> Name : </label>
+    <input type="text" name="name" [(ngModel)]="product.name"    ngModel>
+    <br>
+    <br>
+    <label> Description : </label>
+    <input type="text" name="description"   [(ngModel)]="product.description"     ngModel>
+    <br>
+    <br>
+    <label> Price : </label>
+    <input type="number" name="price" [(ngModel)]="product.price"   ngModel>
+    <br>
+    <br>
+    <button type="submit" value="submit">UPDATE</button>
+    
+</form>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/shared/product.service';
@@ -16,26 +16,88 @@ export class ProductDetailComponent implements OnInit {
    
    prod:any;
    productid:any;
+  
+
+     //@Input() maximumid:number;
+  productids:any[]
+  products:Product[]=[{"id":0, "name": '',"description":'',"price":0}]
+  showprevious:boolean=true;
+  maximumid:number=0;
+  shownext:boolean=true;
 
   ngOnInit(): void {
-    this.activatedroute.paramMap.subscribe((params)=>{
-      console.log("data coming from api from single product ", params)
-        this.productid=Number(params.get('id'))
-        console.log(typeof this.productid)        
-    })
+    
 
-    //this.product=this.api.getproductbyid(this.productid).subscribe()
-    this.api.getallProducts().subscribe((data)=>{
-           this.prod=data.find(p=>p.id===this.productid);
-           console.log(this.prod)
-    })
-
+    // this.api.getallProducts().subscribe((data)=>{
+    //   this.products=data;
+    // })  
+    // console.log("TOTAL PRODUCTS ",this.products)
+    // this.maximumid=Math.max(...this.products.map(user => user.id)) 
+    // console.log("MAXIMUM ID=",this.maximumid)
+          this.maximumid=this.getmaxid();
+          this.getidbyurl();
     }
 
-    // showproduct(){
-    //   this.api.getproductbyid(this.productid).subscribe((data)=>{
-    //     this.product=data;
-    //   })
-    // }
+
+
+
+    getidbyurl(){
+      this.activatedroute.paramMap.subscribe((params)=>{
+        console.log("data coming from api from single product ", params)
+          this.productid=Number(params.get('id'))
+
+          this.checkisfirstorlastproduct(this.productid)
+          this.getproduct();
+          //console.log(typeof this.productid) 
+
+      })
+    }
+    
+
+   checkisfirstorlastproduct(id:number){
+    if(id===1)
+        this.showprevious=false
+    else(id===4)
+        this.shownext=false
+    console.log("MAXIMUM ID in method=",this.maximumid)
+   }
+
+
+    getmaxid(){
+      this.api.getallProducts().subscribe((data)=>{
+        this.products=data;
+      })
+        //this.productids=this.products.map(p=>{return p.id})
+        console.log("TOTAL PRODUCTS ",this.products)
+       //this.maximumid
+       
+       return Math.max(...this.products.map(user => user.id)) 
+        //Math.max(...this.productids)
+    }
+
+
+    getproduct(){
+      this.api.getallProducts().subscribe((data)=>{
+        this.prod=data.find(p=>p.id===this.productid);
+        console.log(this.prod)
+      })
+    }
+    
+
+    startid=1;
+    curreid:number
+    back(id:number){
+      this.curreid=id-1
+      this.route.navigate(['product',this.curreid])
+      this.getidbyurl();
+    }
+    
+
+    next(id:number){
+      this.curreid=id+1
+      this.route.navigate(['product',this.curreid])
+      this.getidbyurl();
+
+    }
 
   }

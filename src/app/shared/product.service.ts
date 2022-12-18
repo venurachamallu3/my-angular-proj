@@ -29,8 +29,8 @@ export class ProductService {
     return this.http.delete<Product>(this.api+id);
   }
 
-  editproduct(prod:Product){
-    return this.http.put<Product>(this.api, prod)
+  editproduct(id:number,prod:Product){
+    return this.http.put<Product[]>(this.api+id, prod)
   }
 
 }

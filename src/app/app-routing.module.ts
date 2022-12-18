@@ -7,6 +7,7 @@ import { ContactComponent } from './header/contact/contact.component';
 import { HomeComponent } from './header/home/home.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductsComponent } from './product/products/products.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"products",component:ProductsComponent},
   {path:"product/:id",component:ProductDetailComponent},
   {path:"product-add",component:ProductAddComponent},
+  {path:"product-edit/:id",component:ProductEditComponent},
   {path:"contact-us",component:ContactComponent},
   {path:"about",component:AboutusComponent},
   {path:"login",component:LoginComponent},

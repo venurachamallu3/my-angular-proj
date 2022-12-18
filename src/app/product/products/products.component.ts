@@ -13,13 +13,19 @@ export class ProductsComponent implements OnInit {
   constructor(private api:ProductService,private route:Router) { }
   
   products:Product[]=[{"id":0, "name": '',"description":'',"price":0}]
-
+  ids:any[]=[]
+  maximumid:number;
 
   ngOnInit(): void {
     this.api.getallProducts().subscribe((data)=>{
       this.products=data;
       console.log(data)
     })
+
+    this.ids=this.products.map(product=>{
+      return product.id
+    })
+    this.maximumid=Number(Math.max(...this.ids))
   }
 
   addproduct(){
@@ -45,6 +51,6 @@ export class ProductsComponent implements OnInit {
   }
 
   editproduct(id:number){
-    this.route.navigate(['/product-add'])
+    this.route.navigate(['/product-edit',id])
   }
 }

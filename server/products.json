@@ -2,8 +2,8 @@
   "products": [
     {
       "id": 1,
-      "name": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
+      "name": "iPhone 13",
+      "description": "Latest version",
       "price": 54900
     },
     {
@@ -23,6 +23,12 @@
       "name": "Samsung",
       "description": "Good Quality",
       "price": 14499
+    },
+    {
+      "id": 5,
+      "name": "Poco",
+      "description": "More offer",
+      "price": 6999
     }
   ]
 }
